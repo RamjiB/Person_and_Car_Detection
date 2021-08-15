@@ -88,7 +88,7 @@ def Model():
     # load an model pre-trained pre-trained on COCO
     backbone = resnet_fpn_backbone('resnet50', True, returned_layers=[2, 3, 4],
                                    extra_blocks=LastLevelP6P7(256, 256))
-    anchor_sizes = tuple((x, int(x * 2 ** (1.0 / 3)), int(x * 2 ** (2.0 / 3))) for x in [32, 64, 128, 256, 512])
+    anchor_sizes = tuple((x, int(x * 2 ** (1.0 / 3)), int(x * 2 ** (2.0 / 3))) for x in [32, 64, 128, 512, 1024])
     aspect_ratios = ((1.0, 2.0,5.0),) * len(anchor_sizes)
     anchor_generator = AnchorGenerator(
                 anchor_sizes, aspect_ratios)
